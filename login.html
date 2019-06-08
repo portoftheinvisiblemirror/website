@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+  <title>WW-P South Science Club | Login</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  
+  
+</head>
+<body>
+  <header>	
+      <nav class="top-nav" style="background-color:#008408">
+        <div class="container">
+          <div class="nav-wrapper">
+			  <a href="#" data-activates="slide-out" class="page-title button-collapse show-on-large"><i class="material-icons">menu</i></a>
+			  <a href="index.html" class="brand-logo center"><img class="responsive-img" src = "img/southscienceclubnavbar.png" ></img></a> <a href="#" class="brand-logo right" style="font-size:12px"></a>
+			  <ul id="nav-mobile" class="left hide-on-med-and-down">
+
+	
+			  </ul>
+		  </div>
+        </div>
+		
+      </nav>
+
+		<ul id="slide-out" class="side-nav" >
+			<li><a style="text-color:#000000;pointer-events: none">Menu</a></li>
+
+			<li><a href="index.html"><i class="material-icons">info_outline</i>Home</a></li>
+			<li class = "active"><a class="waves-effect" href="#"><i class="material-icons">assignment_ind</i>Team Login</a></li>		
+	  </ul>
+	
+  <main>
+    <center>
+      <div class="section"></div>
+      <h2>Team Login</h2>
+      <div class="section"></div>
+
+      <div class="container">
+        <div id ="login_page" class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+         
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field'>
+                <input class='validate' type='email' name='email' id='input_email' />
+                <label for='email'>Enter your email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field'>
+                <input class='validate' type='password' name='password' id='input_password' />
+                <label for='password'>Enter your password</label>
+              </div>
+          
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+
+                <button name='btn_login' type = "submit" class='col s12 btn btn-large waves-effect green darken-3' onclick="scienceclub_firebase_loginUser()" type='submit'>Login</button>
+                </div>
+                 <div class='row'>
+               <a href="register.html" id="btn_registerRedirect" class="col s12 btn btn-large waves-effect green darken-3">Register</a></button>
+                </div>
+          
+              </div>
+            </center>
+            <div style = "text-align: center">
+          <iframe id = "sheetsframe" src = "" scrolling = "no" align = "center" width = "230" height = "300" frameBorder="0"></iframe>
+          </div>
+        </div>
+      </div>
+       
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+     
+    </header>
+	<main>
+		
+  </main>
+    
+ <footer class="page-footer green darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l10 s12">
+      <img src = "img/footer.png" width = "50%" height = 50%>
+
+        </div>
+
+        <div class="col l2 s12">
+          <h5 class="white-text">Contact</h5>
+          <ul>
+            <li><a class="white-text" href="mailto:southscienceclub@gmail.com">southscienceclub@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      West Windsor-Plainsboro High School South Science Club 2018-2019</a>
+      </div>
+    </div>
+  </footer>
+
+
+   	
+
+          
+
+
+  
+      </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+ <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVq35m6SNwAyswvDTTEU1dtTbuLqBJUao",
+    authDomain: "southscienceclub-af172.firebaseapp.com",
+    databaseURL: "https://southscienceclub-af172.firebaseio.com",
+    projectId: "southscienceclub-af172",
+    storageBucket: "southscienceclub-af172.appspot.com",
+    messagingSenderId: "104327859379"
+  };
+  firebase.initializeApp(config);
+</script>
+        <script>
+      var globalLoggedIn = false;
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          globalLoggedIn = true;
+           document.getElementById("login_page").innerHTML = "You are logged in as " + firebase.auth().currentUser.email + ". <br><br>" +
+          "<button name='btn_register' class='col s12 btn btn-large waves-effect green darken-1' onclick='scienceclub_firebase_signout()'>Sign Out</button><br/><br/>";
+          
+          //fix this except with a special url
+          document.getElementById('sheetsframe').src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVulRw_62KJgiLWRoxZZnMD0So2-084gRdeCm8jeDRtRHmXMVDUhlUh7ikcxqDIykVUzykPUDgW68m/pubhtml?gid=1849388100&amp;single=true&amp;widget=true&amp;headers=false";
+
+        }
+      });
+
+
+
+     
+  </script>
+
+   <script>
+  
+    var justSignedIn = false;
+      function scienceclub_firebase_loginUser()
+        {
+          console.log("trying signin");
+            var signin_email = document.getElementById("input_email").value;
+            var signin_pass = document.getElementById("input_password").value;
+            console.log(signin_email);
+            console.log(signin_pass);
+            var error = false;
+            justSignedIn = true;
+            firebase.auth().signInWithEmailAndPassword(signin_email, signin_pass).then(function(user) {
+                console.log("redirecting");
+              document.location = 'login.html';
+            }).catch(function(error) {
+              // Handle Errors here.
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              console.log(errorMessage);
+              alert("Error: Wrong email or password, try again.");
+              error = true;
+            });
+        }
+        function scienceclub_firebase_registerUser()
+        {
+            var signin_email = document.getElementById("input_email").value;
+            var signin_pass = document.getElementById("input_password").value;
+            firebase.auth().createUserWithEmailAndPassword(signin_email, signin_pass).then(function(user) 
+              { 
+                  console.log("printing registration success");
+                  alert("Registration succeeded. Try logging in now.");
+              }).catch(function(error) {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  console.log("scienceclub - Firebase - Registration errors: " + errorMessage);
+                  
+                });
+        }
+         function scienceclub_firebase_signout()
+        {
+          console.log("trying signout");
+            firebase.auth().signOut().then(function() {
+              alert("Successfully signed out!");
+              document.location = 'login.html';
+            }).catch(function(error) {
+              
+            });
+            
+        }
+        
+  </script>
+
+
+  <script>
+	$(".button-collapse").sideNav();
+	
+  </script>
+
+  </body>
+</html>

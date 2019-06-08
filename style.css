@@ -1,0 +1,47 @@
+  nav {
+    padding-left: 10%;
+    padding-right:10%;
+  }
+.navbar-fixed {
+  zoom: 80%;
+}
+.hr-theme-slash-2 {
+    display: flex;
+   }
+   .hr-line {
+      width: 100%;
+      position: relative;
+      margin: 15px;
+      border-bottom: 5px solid #000;
+   }
+    .hr-icon {
+      position: relative;
+  
+    }
+  #index-banner {
+    min-height: 130vh;
+    background: url(https://i.imgur.com/sG8r2Cn.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+  h1, h2, h3, h4, h5, a, span, p {
+    font-family: Raleway;
+  }
+
+  .footer-copyright {
+    font-family: Raleway;
+  }
+
+  .card-title {
+    font-family: Raleway;
+  }
+  .navlinks {
+    font-weight: 300;
+  }
+
+
+  .flow-text {
+    font-size: 18px;
+  }
